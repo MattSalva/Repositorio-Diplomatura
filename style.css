@@ -1,5 +1,7 @@
 body {
     background-color: antiquewhite;
+    font-family: 'Roboto', sans-serif;
+
 }
 #titulo {
     margin-left: 90px;
@@ -7,6 +9,7 @@ body {
 
 img {
     border: 5px black solid;
+    border-radius: 10px;
 }
 
 section {
@@ -18,3 +21,23 @@ section {
 li {
     color: darkblue;
 }
+
+header {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#feffff+0,a0d8ef+0,ddf1f9+75 */
+    background: #feffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #feffff 0%, #a0d8ef 0%, #ddf1f9 75%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  #feffff 0%,#a0d8ef 0%,#ddf1f9 75%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  #feffff 0%,#a0d8ef 0%,#ddf1f9 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feffff', endColorstr='#ddf1f9',GradientType=0 ); /* IE6-9 */
+    box-shadow: 10px 3px 5px #888;
+    border-radius: 30px;
+    border: black;
+}
+
+p {
+
+    column-count: 2;
+    column-gap: 30px;
+}
+
+
