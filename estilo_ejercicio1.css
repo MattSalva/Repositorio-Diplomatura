@@ -1,0 +1,27 @@
+
+
+div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-end;
+    border: black 2px solid;
+    margin: 30%;
+}
+
+p {
+    color: white;
+    padding: 100px;
+    margin: 0;
+}
+
+.rojo{
+    background-color: red;
+}
+.azul{
+    background-color: blue;
+}
+.verde{
+    background-color: green;
+
+}

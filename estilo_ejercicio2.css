@@ -1,0 +1,28 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+div {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    border: black 2px solid;
+    justify-content: center;
+}
+
+p {
+    color: white;
+    padding: 100px;
+    margin: 30% 0 30% 0;
+}
+
+.rojo{
+    background-color: red;
+}
+.azul{
+    background-color: blue;
+}
+.verde{
+    background-color: green;
+
+}
