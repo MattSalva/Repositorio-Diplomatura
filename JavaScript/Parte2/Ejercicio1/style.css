@@ -1,0 +1,28 @@
+body *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.ctr {
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.cuadrado {
+    border: 1px solid black;
+    padding: 3rem;
+}
+
+#cuadrado1 {
+    background-color: red;
+}
+
+#cuadrado2{
+    background-color: blue;
+}
+
+#cuadrado3 {
+    background-color: limegreen;
+}
