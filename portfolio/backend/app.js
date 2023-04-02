@@ -4,6 +4,11 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
+var pool = require('./bd');
+var hbs = require('hbs');
+
+hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -28,55 +33,110 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.get('/', function(req, res){
-  var conocido = Boolean(req.session.nombre);
-  if (conocido){
-    res.render('index', {
-      title: 'Portfolio',
-      conocido: conocido,
-      nombre: req.session.nombre
-    })
+async function traerData(){
+  try{
+    const res = pool.query("SELECT CONCAT(nombre, ' ',apellido) AS nombre_y_apellido, edad FROM datos_personales WHERE id = 1").then((result) => {return result});
+    return await res;
   }
-  else{
-    res.render('admin/login', {
-      title: 'Portfolio - Login',
-      conocido: conocido,
-      nombre: req.session.nombre,
-      layout: 'admin/layout'
-    })
+  catch(error){
+    console.log(error)
   }
-});
+}
 
-app.post('/ingresar', function (req, res){
-  req.session.nombre = req.body.nombre
-  res.redirect('/')
-})
 
-app.get('/logout', function (req,res){
-  req.session.destroy();
-  res.redirect('/');
-});
+async function main(){
+  //const nombre_completo = await traerData();
+  const nombre_completo = await pool.query("SELECT CONCAT(nombre, ' ',apellido) AS nombre_y_apellido, edad FROM datos_personales WHERE id = 1").then((result) => {return result});
+  const edu = await pool.query("SELECT * FROM educacion").then((result) => {return result})
+  const exp = await pool.query("SELECT * FROM experiencia").then((result) => {return result})
+  const projects = await pool.query("SELECT * FROM proyectos").then((result) => {return result})
+  console.log(edu[0])
+  console.log(nombre_completo)
+  app.get('/', function(req, res){
+    var conocido = Boolean(req.session.nombre);
+    if (conocido){
+      res.render('index', {
+        title: 'Portfolio',
+        conocido: conocido,
+        nombre: req.session.nombre,
+        n: nombre_completo[0].nombre_y_apellido,
+        edad: nombre_completo[0].edad
+      })
+    }
+    else{
+      res.render('admin/login', {
+        title: 'Portfolio - Login',
+        conocido: conocido,
+        nombre: req.session.nombre,
+        layout: 'admin/layout'
+
+      })
+    }
+  });
+
+  app.post('/ingresar', function (req, res){
+    req.session.nombre = req.body.nombre
+    res.redirect('/')
+  })
+
+  app.get('/logout', function (req,res){
+    req.session.destroy();
+    res.redirect('/');
+  });
 
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 // app.use('/admin/login', loginRouter);
 
+  app.get('/education', function (req,res){
+    res.render('education/education', {
+      edu_uni: edu[0],
+      edu_terciaria: edu[1],
+      edu_secundaria: edu[2]
+    })
+  });
+
+  app.get('/experience', function (req,res){
+    res.render('experience/experience', {
+      exp_inv: exp[0],
+      exp_ava: exp[1],
+      exp_ate: exp[2]
+    })
+  })
+
+  app.get('/projects', function (req,res){
+    res.render('projects/projects', {
+      tic_tac: projects[0],
+      portfolio: projects[1],
+      hangman: projects[2],
+      memory: projects[3],
+      banking: projects[4],
+      browser: projects[5]
+    })
+  })
+
+
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
-});
+  app.use(function(req, res, next) {
+    next(createError(404));
+  });
 
 // error handler
-app.use(function(err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+  });
 
 
+
+
+}
+
+main()
 
 module.exports = app;
