@@ -35,10 +35,10 @@
   <nav>
       <div class="ctr">
           <ul class="nav justify-content-center nav-tabs">
-              <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-              <li class="nav-item"><a href="/education" class="nav-link">Education</a></li>
-              <li class="nav-item"><a href="/experience" class="nav-link">Experience</a></li>
-              <li class="nav-item"><a href="/projects" class="nav-link">Projects</a></li>
+              <li class="nav-item"><a href="/" class="nav-link {{#if edad}}active{{/if}}">Home</a></li>
+              <li class="nav-item"><a href="/education" class="nav-link {{#if edu_uni}}active{{/if}} ">Education</a></li>
+              <li class="nav-item"><a href="/experience" class="nav-link {{#if exp_inv}}active{{/if}}">Experience</a></li>
+              <li class="nav-item"><a href="/projects" class="nav-link {{#if tic_tac}}active{{/if}}">Projects</a></li>
           </ul>
       </div>
   </nav>
