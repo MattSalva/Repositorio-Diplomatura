@@ -7,6 +7,8 @@ var session = require('express-session');
 var pool = require('./bd');
 var hbs = require('hbs');
 
+
+
 hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
 
 hbs.registerHelper('isuniversitary', function (value) {
@@ -28,7 +30,13 @@ var educationRouter = require('./routes/education');
 var experienceRouter = require('./routes/experience');
 var projectsRouter = require('./routes/projects');
 
+var fileUpload = require('express-fileupload');
+
+
+
 var app = express();
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -70,6 +78,11 @@ secured = async(req, res, next) => {
   }
 
 }
+
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: '/tmp/'
+}));
 
 
 async function main(){

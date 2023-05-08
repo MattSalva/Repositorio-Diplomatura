@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Modificar experiencia</h4>
-            <form action="/projects/edit" method="post">
+            <form action="/projects/edit" method="post" enctype="multipart/form-data">
                 <input type="hidden" value="{{projects.id}}" name="id">
                 <div class="mb-3 row">
                     <input type="text" class="form-control"
@@ -20,7 +20,15 @@
                 <div class="mb-3 row">
                     <label for="site">URL:</label>
                     <input type="text" id="site" name="site" placeholder="URL del sitio" value="{{projects.site}}" class="form-control" >
+
                 </div>
+
+                <div class="mb-3">
+                    <label>Imagen: <input type="file" name="image" id="image"/></label>
+                    <label><input type="checkbox" name="img_delete" id="img_delete" value="1"> Eliminar imagen actual?</label>
+                    <input type="hidden" name="img_orig" value="{{projects.img_id}}">
+                </div>
+
 
                 <button type="submit" class="btn btn-primary">Save</button>
 

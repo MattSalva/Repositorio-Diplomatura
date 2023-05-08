@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-6 offset-3">
             <h4>Agregar un nuevo proyecto</h4>
-            <form action="/projects/add" method="post">
+            <form action="/projects/add" method="post" enctype="multipart/form-data">
                 <div class="mb-3 row">
                     <input type="text" class="form-control"
                         placeholder="Titulo" name="title">
@@ -20,6 +20,13 @@
                     <label for="site">URL:</label>
                     <input type="text" id="site" name="site" placeholder="URL del sitio" class="form-control" >
                 </div>
+
+                <div class="mb-3 row">
+                    <label for="image">Imagen:</label>
+                    <input type="file" id="image" name="image" placeholder="Imagen" class="form-control" >
+                </div>
+
+
 
                 <button type="submit" class="btn btn-primary">Save</button>
 
