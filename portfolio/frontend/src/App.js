@@ -7,7 +7,7 @@ import Nav from './components/layout/Nav'
 import HomePage from './pages/HomePage'
 import EducationPage from "./pages/EducationPage";
 import ExperiencePage from "./pages/ExperiencePage";
-import ProyectsPage from "./pages/ProyectsPage";
+import ProjectsPage from "./pages/ProjectsPage";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
             <Route path="/" element={<HomePage/>}/>
             <Route path="education" element={<EducationPage/>}/>
             <Route path="experience" element={<ExperiencePage/>}/>
-            <Route path="proyects" element={<ProyectsPage/>}/>
+            <Route path="proyects" element={<ProjectsPage/>}/>
         </Routes>
       </BrowserRouter>
     </div>

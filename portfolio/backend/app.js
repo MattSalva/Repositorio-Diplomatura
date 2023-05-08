@@ -6,6 +6,7 @@ var logger = require('morgan');
 var session = require('express-session');
 var pool = require('./bd');
 var hbs = require('hbs');
+var cors = require('cors')
 
 
 
@@ -23,6 +24,7 @@ hbs.registerHelper('isschool', function (value) {
   return value == 1;
 });
 
+var apiRouter = require('./routes/api');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
@@ -83,6 +85,8 @@ app.use(fileUpload({
   useTempFiles: true,
   tempFileDir: '/tmp/'
 }));
+
+app.use('/api', cors(), apiRouter);
 
 
 async function main(){
