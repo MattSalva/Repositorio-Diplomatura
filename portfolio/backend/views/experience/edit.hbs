@@ -1,0 +1,37 @@
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Modificar experiencia</h4>
+            <form action="/experience/edit" method="post">
+                <input type="hidden" value="{{experience.id}}" name="id">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control"
+                           placeholder="Titulo" name="title" value="{{experience.title}}">
+                </div>
+                <div class="mb-3 row">
+                    <textarea type="text" class="form-control" placeholder="Descripcion" name="description">{{experience.description}}</textarea>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="type">Fecha de Inicio:</label>
+                    <input type="date" id="start_date" name="start_date" value="{{dateFormat experience.start_date 'Y-MM-DD'}}" class="form-control" >
+
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="type">Fecha de Fin:</label>
+                    <input type="date" id="end_date" name="end_date" value=
+                            "{{#if experience.end_date}}{{dateFormat experience.end_date 'Y-MM-DD'}}{{else}}2023-01-01{{/if}}" class="form-control" >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if error}}
+    <h5>{{message}}</h5>
+{{/if}}

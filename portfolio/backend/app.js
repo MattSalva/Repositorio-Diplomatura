@@ -9,10 +9,24 @@ var hbs = require('hbs');
 
 hbs.registerHelper('dateFormat', require('handlebars-dateformat'));
 
+hbs.registerHelper('isuniversitary', function (value) {
+    return value == 3;
+});
+
+hbs.registerHelper('isterciary', function (value) {
+  return value == 2;
+});
+
+hbs.registerHelper('isschool', function (value) {
+  return value == 1;
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var loginRouter = require('./routes/admin/login');
+var educationRouter = require('./routes/education');
+var experienceRouter = require('./routes/experience');
+var projectsRouter = require('./routes/projects');
 
 var app = express();
 
@@ -102,32 +116,36 @@ async function main(){
 // app.use('/users', usersRouter);
   app.use('/admin/login', loginRouter);
 
-  app.get('/education', secured ,function (req,res){
-    res.render('education/education', {
-      edu_uni: edu[0],
-      edu_terciaria: edu[1],
-      edu_secundaria: edu[2]
-    })
-  });
+  // app.get('/education', secured ,function (req,res){
+  //   res.render('education/education', {
+  //     edu_uni: edu[0],
+  //     edu_terciaria: edu[1],
+  //     edu_secundaria: edu[2]
+  //   })
+  // });
 
-  app.get('/experience', secured,function (req,res){
-    res.render('experience/experience', {
-      exp_inv: exp[0],
-      exp_ava: exp[1],
-      exp_ate: exp[2]
-    })
-  })
+  app.use('/education', secured, educationRouter);
 
-  app.get('/projects', secured,function (req,res){
-    res.render('projects/projects', {
-      tic_tac: projects[0],
-      portfolio: projects[1],
-      hangman: projects[2],
-      memory: projects[3],
-      banking: projects[4],
-      browser: projects[5]
-    })
-  })
+  // app.get('/experience', secured,function (req,res){
+  //   res.render('experience/experience', {
+  //     exp_inv: exp[0],
+  //     exp_ava: exp[1],
+  //     exp_ate: exp[2]
+  //   })
+  // })
+
+  app.use('/experience', secured, experienceRouter);
+  app.use('/projects', secured, projectsRouter);
+  // app.get('/projects', secured,function (req,res){
+  //   res.render('projects/projects', {
+  //     tic_tac: projects[0],
+  //     portfolio: projects[1],
+  //     hangman: projects[2],
+  //     memory: projects[3],
+  //     banking: projects[4],
+  //     browser: projects[5]
+  //   })
+  // })
 
 
 // catch 404 and forward to error handler

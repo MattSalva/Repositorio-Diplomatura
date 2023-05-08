@@ -1,0 +1,35 @@
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Modificar experiencia</h4>
+            <form action="/projects/edit" method="post">
+                <input type="hidden" value="{{projects.id}}" name="id">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control"
+                           placeholder="Titulo" name="title" value="{{projects.title}}">
+                </div>
+                <div class="mb-3 row">
+                    <textarea type="text" class="form-control" placeholder="Descripcion" name="description">{{projects.description}}</textarea>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="repository">GitHub</label>
+                    <input type="text" id="repository" name="repository" placeholder="Repositorio" value="{{projects.repository}}" class="form-control" >
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="site">URL:</label>
+                    <input type="text" id="site" name="site" placeholder="URL del sitio" value="{{projects.site}}" class="form-control" >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if error}}
+    <h5>{{message}}</h5>
+{{/if}}

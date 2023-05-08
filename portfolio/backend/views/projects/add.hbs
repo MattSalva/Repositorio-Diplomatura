@@ -1,0 +1,34 @@
+<div class="container" style="margin:100px auto">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h4>Agregar un nuevo proyecto</h4>
+            <form action="/projects/add" method="post">
+                <div class="mb-3 row">
+                    <input type="text" class="form-control"
+                        placeholder="Titulo" name="title">
+                </div>
+                <div class="mb-3 row">
+                    <textarea type="text" class="form-control" placeholder="Descripcion" name="description"></textarea>
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="repository">GitHub</label>
+                    <input type="text" id="repository" name="repository" placeholder="Repositorio" class="form-control" >
+                </div>
+
+                <div class="mb-3 row">
+                    <label for="site">URL:</label>
+                    <input type="text" id="site" name="site" placeholder="URL del sitio" class="form-control" >
+                </div>
+
+                <button type="submit" class="btn btn-primary">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{{#if error}}
+    <h5>{{message}}</h5>
+{{/if}}

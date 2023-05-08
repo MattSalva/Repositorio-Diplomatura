@@ -1,115 +1,36 @@
 <main>
     <section>
         <div class="container-fluid d-inline-flex justify-content-around flex-wrap">
+            {{#each projects}}
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="https://play-lh.googleusercontent.com/zPxLgj5nvl20ahJV7aFC6S5mD8kii5CEEDj25j1P9CYAfXL9sdDuO-8eES0r4DhJHrU"
+                        <img src="{{#if img}}{{img}}{{else}}/images/projects/noimage.jpg{{/if}}"
                              class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">{{{tic_tac.title}}}</h5>
-                            <p class="card-text">{{{tic_tac.description}}}</p>
+                            <h5 class="card-title">{{{title}}}</h5>
+                            <p class="card-text">{{{description}}}</p>
+                            <a href="/projects/delete/{{id}}" class="btn btn-sm btn-secondary"
+                            ><i class="fa fa-trash"></i>Delete</a>
+                            <a href="/projects/edit/{{id}}" class="btn btn-sm btn-secondary">
+                                <i class="fa fa-pencil"></i>Edit
+                            </a>
                         </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/tictoc"><i class="bi bi-github"></i></a></div>
+                        <div class="github-link"><a href="{{repository}}"><i class="bi bi-github"></i></a>
+                            {{#if site}}<a href="{{site}}"><i class="bi bi-globe-americas"></i></a>{{/if}}
+                        </div>
 
                     </div>
                 </div>
             </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://resizer.glanacion.com/resizer/sWqXZNsaoIEk6VyYsYT-30Iq9Us=/1200x800/smart/filters:format(webp):quality(80)/cloudfront-us-east-1.images.arcpublishing.com/lanacionar/JWY2ZQMN7FDAXOKHZTDWL5GYZA.png"
-                             class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{{portfolio.tile}}}</h5>
-                            <p class="card-text">{{{portfolio.description}}}</p>
-                            <div>
-                                <a href="https://frontend-mathiassalva.web.app/" target="_blank">https://frontend-mathiassalva.web.app/</a>
-                            </div>
-                        </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/portfolio-FrontEnd"> <i
-                                class="bi bi-github" target="_blank">Frontend</i></a>  <a
-                                href="https://github.com/MattSalva/portfolio-BackEnd"> <i class="bi bi-github"
-                                                                                          target="_blank">Backend</i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://play-lh.googleusercontent.com/Eg8Swxv4VMMs-l8r0yzCDVX-Mr6RZiztBFieLfdjH9c5Apn4BoOJT4sMC5Vx5gNnfg"
-                             class="img-fluid rounded-start" alt="hangman">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{{hangman.title}}}</h5>
-                            <p class="card-text">{{{hangman.description}}}</p>
-                        </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/hangman" target="_blank"><i
-                                class="bi bi-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://as1.ftcdn.net/v2/jpg/02/21/84/70/1000_F_221847002_CJJhicL6pXVfVidGFuLmudBaZIWqPlaR.jpg"
-                             class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{{memory.title}}}</h5>
-                            <p class="card-text">{{{memory.description}}}</p>
-                        </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/py-memorygame" target="_blank"><i
-                                class="bi bi-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://assets-global.website-files.com/61559d56514fd6c31beea3ac/632c3fcc4fe9212bedd12908_632c1987a910e3924d2421bf_iStock-531236924.webp"
-                             class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{{banking.title}}}</h5>
-                            <p class="card-text">{{{banking.description}}}</p>
-                        </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/py_banking"><i
-                                class="bi bi-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card mb-3" style="max-width: 540px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="https://nationaltoday.com/wp-content/uploads/2021/07/shutterstock_159262919-min-640x514.jpg"
-                             class="img-fluid rounded-start" alt="...">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{{browser.title}}}</h5>
-                            <p class="card-text">{{{browser.description}}}</p>
-                        </div>
-                        <div class="github-link"><a href="https://github.com/MattSalva/py-browser"><i
-                                class="bi bi-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-
-
+            {{/each}}
+        </div>
+        <div class="m-2">
+            <a href="/projects/add" class="btn btn-success">
+                <i class="fa fa-plus"></i>New
+            </a>
         </div>
     </section>
 </main>
