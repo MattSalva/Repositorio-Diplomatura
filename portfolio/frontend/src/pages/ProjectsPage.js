@@ -18,17 +18,16 @@ const ProjectsPage = (props) => {
     }, []);
 
     return (
-        <section className="holder">
-            <h2>Projects</h2>
+        <div className="card mb-3" style="max-width: 540px;">
             {loading ? ( <p>Loading...</p>) : (
                 projects.map(item => <ProjectsItem key={item.id} title={item.title}
                                                    description={item.description}
-                                                   start_date={item.start_date}
-                                                   end_date={item.end_date}
                                                    image={item.image}
+                                                   repository = {item.repository}
+                                                   site = {item.site}
                                                     body={item.body} />)
             )}
-        </section>
+        </div>
     );
 }
 
