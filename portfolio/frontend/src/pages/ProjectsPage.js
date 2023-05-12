@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import ProjectsItem from "../components/projects/ProjectsItem";
 
+
 const ProjectsPage = (props) => {
     const [loading, setLoading] = useState(false);
     const [projects, setProjects] = useState([]);
@@ -18,7 +19,7 @@ const ProjectsPage = (props) => {
     }, []);
 
     return (
-        <div className="card mb-3" style="max-width: 540px;">
+        <div className="container-fluid d-inline-flex justify-content-around flex-wrap">
             {loading ? ( <p>Loading...</p>) : (
                 projects.map(item => <ProjectsItem key={item.id} title={item.title}
                                                    description={item.description}
@@ -31,7 +32,7 @@ const ProjectsPage = (props) => {
     );
 }
 
-export default ProjectsPage
+export default ProjectsPage;
 
 // const ProjectsPage = (props) => {
 //     return(

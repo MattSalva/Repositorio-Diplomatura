@@ -36,38 +36,47 @@ const HomePage = (props) => {
 
     return (
         <main>
+            <div className="container">
+                <div className="row d-flex flex-column align-center">
             <section>
-                <div className="ctr">
-                    <h4>About me</h4>
-                    <p>Me llamo Mathias Salva, tengo 26 años y vivo en José C. Paz, Buenos Aires. Soy un profesor de
-                        inglés
-                        recibido y un estudiante de ingeniería en sistemas, y desde hace varios años he trabajado como
-                        soporte
-                        técnico en diferentes empresas. Hace años comencé a interesarme por la programación y hoy día es
-                        una
-                        afición la cual apunto a prácticar profesionalmente. Es uno de mis hobbies, al igual que la
-                        actividad
-                        física como natación o ir al gimnasio. Además, disfruto jugar videos juegos en línea, los cuáles
-                        me
-                        conectan a diario con amistades a la distancia.</p>
+                <br></br>
+                <div className="col">
+                    <h2>Un poco sobre mi... </h2>
                 </div>
+                    <br></br>
+                    <br></br>
+                <div className="col about">
+                    <p className="">Soy Mathias y tengo 26 años. Trabajo hace mas de 6 años en el area de IT
+                        dando soporte a diferentes aplicaciones. Soy profesor de inglés recibido y estudiante de la
+                        carrera Ingenieria en Sistemas de Información de la UTN Regional Buenos Aires. Hace variós años
+                        estudio por mi cuenta herramientas, metodologias, paradigmas y tecnologias relacionadas al
+                        desarrollo de software por lo que ya cuento con experiencia en varios lenguajes como C++, Php,
+                        Java, Python, Javascript y SQL. Así como tambien he realizado varios proyectos usando
+                        controladores de versión como Git y Mercurial, haciendo uso de frameworks varios de cada
+                        lenguaje como Flask y Django para Python, SpringBoot para Java, Laravel para PHP. Mi objetivo
+                        profesional apunta a convertirme en un desarrollador Fullstack orientado a PHP y React, pero con
+                        conocimientos en varios frameworks tales como Express.JS, React Native y Angular. </p>
+                </div>
+                <br/>
+                <br/>
             </section>
             <h2>Contactarme</h2>
             <form method="post" action="/contact" onSubmit={handleSubmit}>
+                <div><label htmlFor="nombre">Nombre</label></div>
                 <div>
-                    <label for="nombre">Nombre</label>
                     <input type="text" name="nombre" value={formData.nombre} onChange={handleChange}/>
                 </div>
+                <div><label htmlFor="email">Email</label></div>
                 <div>
-                    <label for="email">Email</label>
+
                     <input type="text" name="email" value={formData.email} onChange={handleChange}/>
                 </div>
+                <div><label htmlFor="telefono">Telefono</label></div>
                 <div>
-                    <label for="telefono">Telefono</label>
                     <input type="text" name="telefono" value={formData.telefono} onChange={handleChange}/>
                 </div>
+                <div><label htmlFor="mensaje">Mensaje</label></div>
                 <div>
-                    <label for="mensaje">Mensaje</label>
                     <textarea name="mensaje" value={formData.mensaje} onChange={handleChange}></textarea>
                 </div>
                 <input type="submit" value="Enviar"/>
@@ -76,7 +85,8 @@ const HomePage = (props) => {
 
             {sending ? <p>Enviando...</p> : null}
             {msg ? <p>{msg}</p> : null}
-
+                </div>
+            </div>
         </main>
     )
 }

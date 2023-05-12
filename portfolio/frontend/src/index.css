@@ -11,3 +11,72 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+.social {
+  box-sizing: border-box;
+}
+.social ul {
+  padding-left: 0;
+}
+.social ul li{
+  display: inline-block;
+  padding-right: 6px;
+}
+
+
+header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+header img{
+  max-width: 250px;
+  max-height: 250px;
+}
+
+.ctr {
+  max-width: 100%;
+  margin: 1rem 1rem;
+}
+
+.github-link {
+  text-align: center;
+}
+
+.github-link a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.social {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.accordion-body dl {
+  list-style-type: none;
+}
+
+.about {
+  border: 1px solid black;
+  text-align: justify;
+  border-radius: 5px;
+  padding: 2rem;
+  line-height: 2.5rem;
+  background-color: #ecf0f1;
+}
+
+.about p {
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+}

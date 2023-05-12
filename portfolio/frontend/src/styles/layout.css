@@ -1,6 +1,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -49,4 +51,18 @@ header img{
 
 .accordion-body dl {
     list-style-type: none;
+}
+
+.about {
+    border: 1px solid black;
+    text-align: justify;
+    border-radius: 5px;
+    padding: 2rem;
+    line-height: 2.5rem;
+    background-color: #ecf0f1;
+}
+
+.about p {
+    margin:0;
+    font-family: 'Poppins', sans-serif;
 }
