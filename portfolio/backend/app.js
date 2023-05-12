@@ -69,7 +69,6 @@ async function traerData(){
 
 secured = async(req, res, next) => {
   try {
-    console.log(req.session.id_usuario);
     if(req.session.id_usuario){
       next();
     } else{
@@ -95,8 +94,7 @@ async function main(){
   const edu = await pool.query("SELECT * FROM educacion").then((result) => {return result})
   const exp = await pool.query("SELECT * FROM experiencia").then((result) => {return result})
   const projects = await pool.query("SELECT * FROM proyectos").then((result) => {return result})
-  console.log(edu[0])
-  console.log(nombre_completo)
+
 
 
 
